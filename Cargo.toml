@@ -1,0 +1,35 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+argon2 = "0.5.3"
+async-trait = "0.1.83"
+chrono = { version="0.4.38", features=["serde"] }
+dotenv = "0.15.0"
+jsonwebtoken = "9.2.0"
+serde = { version = "1.0.183", features = ["derive"] }
+serde_json = "1.0.104"
+uuid = { version = "1.4.1", features = ["serde", "v4"] }
+validator = { version = "0.16.1", features = ["derive"] }
+tokio = { version = "1.39.3", features = ["full"] }
+tokio-cron-scheduler = "0.13.0"
+tower = "0.5.0"
+time = "0.3.20"
+tower-http = { version = "0.5.2", features = ["cors","trace"] }
+tracing-subscriber = { version = "0.3.18"}
+aes = "0.7"
+block-modes = "0.8"
+rsa = "0.9"
+rand = "0.8"
+base64 = "0.22.1"
+mongodb = "3.1.0"
+actix-web = "4.9.0"
+actix-web-httpauth = "0.8.2"
+actix-multipart = "0.7.2"
+futures-util = "0.3.31"
+actix-cors = "0.7.0"
+cron = "0.12.1"
