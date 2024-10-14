@@ -2,13 +2,17 @@
     "version": 2,
     "builds": [
         {
-            "src": "src/main.rs",
+            "src": "build.sh",
             "use": "@vercel/static-build",
             "config": {
-                "rootDirectory": "/",
-                "buildCommand": "cargo build --release",
-                "outputDirectory": "target/release"
+                "distDir": "public"
             }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/public/server"
         }
     ]
 }
