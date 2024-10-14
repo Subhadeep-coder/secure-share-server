@@ -3,7 +3,7 @@
     "builds": [
         {
             "src": "src/main.rs",
-            "use": "@vercel/rust",
+            "use": "@vercel/static-build",
             "config": {
                 "rootDirectory": "/",
                 "buildCommand": "cargo build --release",
