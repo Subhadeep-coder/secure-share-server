@@ -1,10 +1,16 @@
 #!/bin/bash
 
-# Install Rust in a local directory
-curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly --profile minimal --no-modify-path --default-host x86_64-unknown-linux-gnu --prefix .rustup
+# Install Rust
+curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-# Add cargo to PATH
-export PATH="$PWD/.rustup/bin:$PATH"
+# Source cargo environment
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Check if cargo is installed
+if ! command -v cargo &> /dev/null; then
+    echo "Rust installation failed."
+    exit 1
+fi
 
 # Build the project
 cargo build --release
