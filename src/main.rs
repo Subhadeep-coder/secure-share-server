@@ -36,6 +36,7 @@ async fn main() -> std::io::Result<()> {
     tokio::spawn(async move {
         start_cron_jobs(db_data_for_cron).await;
     });
+    let addr = format!("0.0.0.0:{}",port);
     HttpServer::new(move || {
         let logger = Logger::default();
         let auth = HttpAuthentication::bearer(validator);
@@ -62,7 +63,7 @@ async fn main() -> std::io::Result<()> {
                     .configure(file_controller::init),
             )
     })
-    .bind(format!(":{}", port))?
+    .bind(addr)?
     .run()
     .await
 }
